@@ -1,43 +1,43 @@
 <script setup>
-import AlertIcon from "../icons/AlertIcon.vue";
-import CloseIcon from "../icons/CloseIcon.vue";
+import AlertIcon from '../icons/AlertIcon.vue'
+import CloseIcon from '../icons/CloseIcon.vue'
 
 const props = defineProps({
-  type: {
-    type: String,
-    required: true,
-    default: "info",
-  },
-  message: {
-    type: String,
-    required: true,
-  },
-  handleClose: {
-    type: Function,
-    required: true,
-  },
-});
+	type: {
+		type: String,
+		required: true,
+		default: 'info',
+	},
+	message: {
+		type: String,
+		required: true,
+	},
+	handleClose: {
+		type: Function,
+		required: true,
+	},
+})
 
 const typeAlerts = {
-  info: "bg-blue-50 text-blue-800 border-blue-300",
-  danger: "bg-red-50 text-red-800 border-red-300",
-  success: "bg-green-50 text-green-800 border-green-300",
-  warning: "bg-yellow-50 text-yellow-800 border-yellow-300",
-};
+	info: 'bg-blue-50 text-blue-800 border-blue-300',
+	danger: 'bg-red-50 text-red-800 border-red-300',
+	success: 'bg-green-50 text-green-800 border-green-300',
+	warning: 'bg-yellow-50 text-yellow-800 border-yellow-300',
+}
 
 const hoverClasses = {
-  info: "hover:bg-blue-200 focus:ring-blue-200",
-  danger: "hover:bg-red-200 focus:ring-red-200",
-  success: "hover:bg-green-200 focus:ring-green-200",
-  warning: "hover:bg-yellow-200 focus:ring-yellow-200",
-};
+	info: 'hover:bg-blue-200 focus:ring-blue-200',
+	danger: 'hover:bg-red-200 focus:ring-red-200',
+	success: 'hover:bg-green-200 focus:ring-green-200',
+	warning: 'hover:bg-yellow-200 focus:ring-yellow-200',
+}
 
 const title = {
-  info: "Info",
-  danger: "Error",
-  success: "Success",
-  warning: "Warning",
-};
+	info: 'Info',
+	danger: 'Error',
+	success: 'Success',
+	warning: 'Warning',
+}
 </script>
 
 <template>
