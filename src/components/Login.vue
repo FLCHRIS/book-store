@@ -1,77 +1,77 @@
 <script setup>
-import { isValidEmail } from "../utils/validation";
-import { useUserStore } from "../stores/user";
-import { reactive } from "vue";
+import { isValidEmail } from '../utils/validation'
+import { useUserStore } from '../stores/user'
+import { reactive } from 'vue'
 
-import Alert from "../components/Alert.vue";
+import Alert from '../components/Alert.vue'
 
-import EmailIcon from "../icons/EmailIcon.vue";
-import LockIcon from "../icons/LockIcon.vue";
+import EmailIcon from '../icons/EmailIcon.vue'
+import LockIcon from '../icons/LockIcon.vue'
 
-const { logIn } = useUserStore();
+const { logIn } = useUserStore()
 
 const form = reactive({
-  email: "",
-  password: "",
-});
+	email: '',
+	password: '',
+})
 
 const formErrors = reactive({
-  email: {
-    error: false,
-    message: "",
-  },
-  password: {
-    error: false,
-    message: "",
-  },
-  response: {
-    error: false,
-    message: "",
-  },
-});
+	email: {
+		error: false,
+		message: '',
+	},
+	password: {
+		error: false,
+		message: '',
+	},
+	response: {
+		error: false,
+		message: '',
+	},
+})
 
 const submitForm = async (e) => {
-  e.preventDefault();
-  clearFormErrors();
+	e.preventDefault()
+	clearFormErrors()
 
-  if (!isValidForm()) return;
+	if (!isValidForm()) return
 
-  try {
-    await logIn(form)
-  } catch (error) {
-    formErrors.response.error = true;
-    formErrors.response.message = error.message;
-  }
-};
+	try {
+		await logIn(form)
+	} catch (error) {
+		formErrors.response.error = true
+		formErrors.response.message = error.message
+	}
+}
 
 const isValidForm = () => {
-  let isValid = true;
+	let isValid = true
 
-  if (!isValidEmail(form.email)) {
-    formErrors.email.error = true;
-    formErrors.email.message = "Invalid email";
-    isValid = false;
-  }
-  if (form.password.length < 8) {
-    formErrors.password.error = true;
-    formErrors.password.message = "Password must be at least 8 characters";
-    isValid = false;
-  }
-  if (form.password.trim() === "") {
-    formErrors.password.error = true;
-    formErrors.password.message = "Password is required";
-    isValid = false;
-  }
+	if (!isValidEmail(form.email)) {
+		formErrors.email.error = true
+		formErrors.email.message = 'Invalid email'
+		isValid = false
+	}
+	if (form.password.length < 8) {
+		formErrors.password.error = true
+		formErrors.password.message = 'Password must be at least 8 characters'
+		isValid = false
+	}
+	if (form.password.trim() === '') {
+		formErrors.password.error = true
+		formErrors.password.message = 'Password is required'
+		isValid = false
+	}
 
-  return isValid;
-};
+	return isValid
+}
 
 const clearFormErrors = () => {
-  Object.keys(formErrors).forEach((key) => {
-    formErrors[key].error = false;
-    formErrors[key].message = "";
-  });
-};
+	Object.keys(formErrors).forEach((key) => {
+		formErrors[key].error = false
+		formErrors[key].message = ''
+	})
+}
 </script>
 
 <template>
