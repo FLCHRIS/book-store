@@ -1,10 +1,10 @@
 <script setup>
 const { styles } = defineProps({
-  styles: {
-    type: String,
-    required: true,
-  },
-});
+	styles: {
+		type: String,
+		required: true,
+	},
+})
 </script>
 
 <template>
