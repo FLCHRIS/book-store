@@ -1,16 +1,16 @@
-import "@fontsource-variable/inter";
-import "./style.css";
+import '@fontsource-variable/inter'
+import './style.css'
 
-import { createPinia } from "pinia";
-import { createApp } from "vue";
+import { createPinia } from 'pinia'
+import { createApp } from 'vue'
 
-import router from "./router";
-import App from "./App.vue";
+import router from './router'
+import App from './App.vue'
 
-const app = createApp(App);
-const pinia = createPinia();
+const app = createApp(App)
+const pinia = createPinia()
 
-app.use(router);
-app.use(pinia);
+app.use(router)
+app.use(pinia)
 
-app.mount("#app");
+app.mount('#app')
